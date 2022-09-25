@@ -1,15 +1,27 @@
 .image-item {
-  margin: 5px;
-  border: 1px dashed;
+  margin: 10px;
+  // border: 1px dashed;
+  background-color: rgb(250, 248, 250);
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: rgb(207, 204, 204);
+
   .image {
     width: 400px;
-    height: 300px;
+    height: 200px;
     object-fit: contain;
     margin-top: 5px
   }
   .path {
-    width: 350px;
-    align-self: left;
-    margin: 5px
+    width: 75%;
+    margin: 5px;
   }
+
+  .delete {
+    margin-bottom: 5px;
+  }
+
+}
+.image-item:hover{
+  transform: scale(1.05);
 }
