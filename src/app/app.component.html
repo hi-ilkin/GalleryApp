@@ -1,7 +1,10 @@
 <h1>{{ title }}</h1>
 
 <div class="container">
-  <div *ngFor="let imgIdx of data" style="border: 1px solid; width: 300px">
-    <app-image-item imgSrc="{{ imgIdx.image }}"></app-image-item>
+  <div *ngFor="let imgIdx of data" style="border: 1px solid; width: 400px">
+    <app-image-item
+      imgSrc="{{ imgIdx.imagePath }}"
+      (btnClick)="deleteImage()"
+    ></app-image-item>
   </div>
 </div>
