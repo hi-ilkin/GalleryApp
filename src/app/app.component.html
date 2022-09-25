@@ -1,14 +1,24 @@
 <h1>{{ title }}</h1>
 
 <div class="body">
-  <mat-grid-list cols="3" rowHeight="4:3">
-    <div *ngFor="let imgItem of data">
-      <mat-grid-tile>
-        <app-image-item
-          imgSrc="{{ imgItem.imagePath }}"
-          (btnClick)="deleteImage(imgItem)"
-        ></app-image-item>
-      </mat-grid-tile>
-    </div>
-  </mat-grid-list>
+  <div
+    *ngFor="let itemGroup of similarItemGroups"
+    class="item-group"
+    [ngStyle]="
+      this.similarItemGroups.length === 0
+        ? { visibility: 'hidden' }
+        : { visibility: 'visible' }
+    "
+  >
+    <mat-grid-list cols="3" rowHeight="4:3">
+      <div *ngFor="let imgItem of itemGroup">
+        <mat-grid-tile>
+          <app-image-item
+            imgSrc="{{ imgItem.imagePath }}"
+            (btnClick)="deleteImage(itemGroup, imgItem)"
+          ></app-image-item>
+        </mat-grid-tile>
+      </div>
+    </mat-grid-list>
+  </div>
 </div>

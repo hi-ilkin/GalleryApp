@@ -10,15 +10,27 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'GalleryApp';
 
-  data: Item[] = ITEMS;
+  similarItemGroups: Item[][] = ITEMS;
 
-  delete(item: Item) {
-    const index = this.data.indexOf(item);
-    this.data.splice(index, 1);
+  // delete(group: ItemGroup, item: Item) {
+  //   const index = group.items.indexOf(item);
+  //   this.similarItemGroups.splice(index, 1);
+  // }
+
+  deleteImage(itemGroup: Item[], item: Item) {
+    const groupIndex = this.similarItemGroups.indexOf(itemGroup);
+    this.similarItemGroups[groupIndex] = this.similarItemGroups[
+      groupIndex
+    ].filter((i) => i !== item);
+
+    if (this.similarItemGroups[groupIndex].length === 0) {
+      this.similarItemGroups.splice(groupIndex, 1);
+    }
+    console.log(this.similarItemGroups.length);
   }
 
-  deleteImage(item: Item) {
-    const index = this.data.indexOf(item);
-    this.data.splice(index, 1);
-  }
+  // deleteImage(item: Item) {
+  //   // const index = this.similarItemGroups.indexOf(item);
+  //   // this.similarItemGroups.splice(index, 1);
+  // }
 }
