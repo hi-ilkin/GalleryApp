@@ -1,17 +1,17 @@
 <div class="imageItem">
-  <fa-icon
-    [icon]="faTrashCan"
-    [ngStyle]="{ color: 'red' }"
-    (click)="onDelete()"
-  ></fa-icon>
   <img
-    style="width: 400px; height: 200px; object-fit: contain"
+    style="width: 400px; height: 200px; object-fit: contain; margin-top: 5px"
     src="{{ imgSrc }}"
   />
   <input
-    style="width: 300px; align-self: center"
+    style="width: 250px; align-self: center; margin: 5px"
     disabled="true"
     value="{{ imgSrc }}"
   />
-  <button (click)="onClick()">Delete</button>
+  <fa-icon
+    [icon]="faTrashCan"
+    [ngStyle]="{ color: 'red', margin: '5px' }"
+    (click)="onDelete()"
+  ></fa-icon>
+  <button mat-raised-button color="warn" (click)="onClick()">Delete</button>
 </div>

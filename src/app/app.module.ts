@@ -6,12 +6,19 @@ import { AppComponent } from './app.component';
 import { ImageItemComponent } from './components/image-item/image-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ImageGroupComponent } from './components/image-group/image-group.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent, ImageItemComponent, ImageGroupComponent],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
