@@ -12,7 +12,13 @@ export class AppComponent {
 
   data: Item[] = ITEMS;
 
-  deleteImage() {
-    console.log('Item deleted');
+  delete(item: Item) {
+    const index = this.data.indexOf(item);
+    this.data.splice(index, 1);
+  }
+
+  deleteImage(item: Item) {
+    const index = this.data.indexOf(item);
+    this.data.splice(index, 1);
   }
 }

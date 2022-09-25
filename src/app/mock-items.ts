@@ -13,6 +13,10 @@ export const ITEMS: Item[] = [
     id: 3,
     imagePath: 'https://picsum.photos/id/10/900/500',
   },
+  {
+    id: 4,
+    imagePath: 'https://picsum.photos/id/100/1000/500',
+  },
 ];
 
 // better structure

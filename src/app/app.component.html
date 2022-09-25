@@ -2,11 +2,11 @@
 
 <div class="container" style="border: 1px solid; margin: 10px">
   <mat-grid-list cols="3" rowHeight="4:3">
-    <div *ngFor="let imgIdx of data">
+    <div *ngFor="let imgItem of data">
       <mat-grid-tile>
         <app-image-item
-          imgSrc="{{ imgIdx.imagePath }}"
-          (btnClick)="deleteImage()"
+          imgSrc="{{ imgItem.imagePath }}"
+          (btnClick)="deleteImage(imgItem)"
         ></app-image-item>
       </mat-grid-tile>
     </div>
