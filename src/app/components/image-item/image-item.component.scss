@@ -1,0 +1,15 @@
+.image-item {
+  margin: 5px;
+  border: 1px dashed;
+  .image {
+    width: 400px;
+    height: 300px;
+    object-fit: contain;
+    margin-top: 5px
+  }
+  .path {
+    width: 350px;
+    align-self: left;
+    margin: 5px
+  }
+}
