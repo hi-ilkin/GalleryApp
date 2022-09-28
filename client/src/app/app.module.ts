@@ -9,6 +9,8 @@ import { ImageGroupComponent } from './components/image-group/image-group.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
+
 
 @NgModule({
   declarations: [AppComponent, ImageItemComponent, ImageGroupComponent],
@@ -19,6 +21,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     BrowserAnimationsModule,
     MatButtonModule,
     MatGridListModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent],
