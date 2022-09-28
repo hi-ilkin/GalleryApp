@@ -1,6 +1,6 @@
 import { Item } from './image-items';
-import { ITEMS } from './mock-items';
-import { Component } from '@angular/core';
+import { getRandomItems, ITEMS } from './mock-items';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,11 @@ export class AppComponent {
   title = 'GalleryApp';
 
   similarItemGroups: Item[][] = ITEMS;
+
+  endIndex: number = 3;
+  constructor() {
+    console.log(`Size of original: ${this.similarItemGroups.length}`);
+  }
 
   // delete(group: ItemGroup, item: Item) {
   //   const index = group.items.indexOf(item);
@@ -26,7 +31,17 @@ export class AppComponent {
     if (this.similarItemGroups[groupIndex].length === 0) {
       this.similarItemGroups.splice(groupIndex, 1);
     }
-    console.log(this.similarItemGroups.length);
+  }
+
+  onScroll() {
+    console.log('scrolled!!');
+    if (this.endIndex >= this.similarItemGroups.length) {
+      this.similarItemGroups.push(getRandomItems());
+    }
+
+    this.endIndex++;
+
+    console.log(`Size of original: ${this.similarItemGroups.length}`);
   }
 
   // deleteImage(item: Item) {

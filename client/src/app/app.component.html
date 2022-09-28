@@ -1,8 +1,16 @@
 <h1>{{ title }}</h1>
 
-<div class="body">
+<div
+  class="search-results"
+  infiniteScroll
+  [infiniteScrollDistance]="0.1"
+  [infiniteScrollThrottle]="150"
+  (scrolled)="onScroll()"
+>
   <div
-    *ngFor="let itemGroup of similarItemGroups"
+    *ngFor="
+      let itemGroup of similarItemGroups.slice(0, this.endIndex)
+    "
     [ngStyle]="
       this.similarItemGroups.length === 0
         ? { visibility: 'hidden' }
