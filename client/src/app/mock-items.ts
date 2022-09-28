@@ -1,74 +1,25 @@
 import { Item } from './image-items';
 
-export const ITEMS: Item[][] = [
-  [
-    {
-      id: 1,
-      imagePath: 'https://picsum.photos/id/945/900/500',
-    },
-    {
-      id: 2,
-      imagePath: 'https://picsum.photos/id/666/900/600',
-    },
-    {
-      id: 3,
-      imagePath: 'https://picsum.photos/id/10/900/500',
-    },
-  ],
-  [
-    {
-      id: 1,
-      imagePath: 'https://picsum.photos/id/100/1000/500',
-    },
-  ],
-  [
-    {
-      id: 1,
-      imagePath: 'https://picsum.photos/id/324/900/500',
-    },
-    {
-      id: 2,
-      imagePath: 'https://picsum.photos/id/43/900/600',
-    },
-    {
-      id: 3,
-      imagePath: 'https://picsum.photos/id/23/900/500',
-    },
-  ],
-  [
-    {
-      id: 1,
-      imagePath: 'https://picsum.photos/id/64/900/500',
-    },
-    {
-      id: 2,
-      imagePath: 'https://picsum.photos/id/435/900/600',
-    },
-    {
-      id: 3,
-      imagePath: 'https://picsum.photos/id/34/900/500',
-    },
-    {
-      id: 4,
-      imagePath: 'https://picsum.photos/id/45/900/500',
-    },
-    {
-      id: 5,
-      imagePath: 'https://picsum.photos/id/56/900/500',
-    },
-  ],
-];
+export const ITEMS: Item[][] = [];
 
-// better structure
-// IMAGE_ITEMS = [
-//   {
-//     groupId: 1,
-//     items: [
-//       { id: 1, imgPath: '' },
-//       {
-//         id: 2,
-//         imgPath: '',
-//       },
-//     ],
-//   },
-// ];
+function getRandomNumber(max = 100000): number {
+  return Math.floor(Math.random() * max);
+}
+
+export function getRandomItems(amount?: number) {
+  if (amount == null) {
+    amount = getRandomNumber(10);
+  }
+  let randomItems: Item[] = [];
+  for (let i = 0; i < amount; i++) {
+    randomItems.push({
+      id: getRandomNumber(),
+      imagePath: `https://picsum.photos/id/${getRandomNumber(1000)}/900/500`,
+    });
+  }
+  return randomItems;
+}
+
+for (let i = 0; i < 10; i++) {
+  ITEMS.push(getRandomItems(getRandomNumber(10)));
+}
