@@ -8,11 +8,9 @@
   (scrolled)="onScroll()"
 >
   <div
-    *ngFor="
-      let itemGroup of similarItemGroups.slice(0, this.endIndex)
-    "
+    *ngFor="let itemGroup of similarItemGroups.slice(0, this.endIndex)"
     [ngStyle]="
-      this.similarItemGroups.length === 0
+      itemGroup.length === 0
         ? { visibility: 'hidden' }
         : { visibility: 'visible' }
     "
