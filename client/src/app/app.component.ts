@@ -1,6 +1,7 @@
 import { Item } from './image-items';
 import { getRandomItems, ITEMS } from './mock-items';
 import { Component, OnInit } from '@angular/core';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'GalleryApp';
+  faTrashCan = faEye;
 
   similarItemGroups: Item[][] = ITEMS;
 
   endIndex: number = 3;
   constructor() {
+    console.log(this.similarItemGroups);
     console.log(`Size of original: ${this.similarItemGroups.length}`);
   }
 
-  // delete(group: ItemGroup, item: Item) {
-  //   const index = group.items.indexOf(item);
-  //   this.similarItemGroups.splice(index, 1);
-  // }
+  hideGroup(itemGroup: Item[]) {
+    console.log('Clicked');
+    const index = this.similarItemGroups.indexOf(itemGroup);
+    this.similarItemGroups.splice(index, 1);
+  }
 
   deleteImage(itemGroup: Item[], item: Item) {
     const groupIndex = this.similarItemGroups.indexOf(itemGroup);
