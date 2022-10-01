@@ -12,7 +12,7 @@ client/npm-debug.log
 client/yarn-error.log
 
 # IDEs and editors
-.idea/
+*/.idea/
 .project
 .classpath
 .c9/
@@ -27,6 +27,9 @@ client/.vscode/*
 !client/.vscode/launch.json
 !client/.vscode/extensions.json
 client/.history/*
+
+# Server files
+server/__pycache__/
 
 # Miscellaneous
 /client/.angular/cache
