@@ -20,6 +20,6 @@ export function getRandomItems(amount?: number) {
   return randomItems;
 }
 
-for (let i = 0; i < 10; i++) {
-  ITEMS.push(getRandomItems(getRandomNumber(10)));
-}
+// for (let i = 0; i < 10; i++) {
+//   ITEMS.push(getRandomItems(getRandomNumber(10)));
+// }

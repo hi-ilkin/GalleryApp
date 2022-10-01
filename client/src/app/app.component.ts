@@ -2,6 +2,7 @@ import { Item } from './image-items';
 import { getRandomItems, ITEMS } from './mock-items';
 import { Component, OnInit } from '@angular/core';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,15 @@ export class AppComponent {
   faTrashCan = faEye;
 
   similarItemGroups: Item[][] = ITEMS;
-
   endIndex: number = 3;
-  constructor() {
+  url = 'http://127.0.0.1:8000/mock_data';
+
+  constructor(private http: HttpClient) {
     console.log(this.similarItemGroups);
     console.log(`Size of original: ${this.similarItemGroups.length}`);
+    this.http
+      .get<Item[][]>(this.url)
+      .subscribe((items) => (this.similarItemGroups = items));
   }
 
   hideGroup(itemGroup: Item[]) {
